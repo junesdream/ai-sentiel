@@ -23,7 +23,8 @@ export async function askAI(prompt: string) {
 
     return data.candidates[0].content.parts[0].text;
     
-  } catch (error: any) {
-    return `FEHLER: Verbindung fehlgeschlagen.`;
+  } catch (error: unknown) {
+      console.error("Auth-System-Fehler:", error);
+      return `FEHLER: Verbindung fehlgeschlagen.`;
   }
 }
